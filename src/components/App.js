@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import CharacterList from './CharacterList';
-import '../stylesheets/App.css';
+import CharacterDetail from './CharacterDetail';
 import Filters from './Filters';
+import '../stylesheets/App.css';
+
 
 class App extends Component {
   constructor(){
@@ -40,28 +43,25 @@ class App extends Component {
       filterValue: event.target.value,
     },
     () => {
-      // console.log('valor de this state actualizado',this.state.filterValue)
-      // console.log('quiero asegurarme que el tipo de dato es un string',typeof this.state.filterValue);
-      // console.log('nombre del primer caracter',this.state.characters)
-      // caharacters[0].name.includes(this.state.filterValue.)
-    })
-    console.log('this.state.filterValue',this.state.filterValue)
-    console.log('nombre del primer caracter',this.state.characters[0].name);
-    this.state.characters[0].name.includes(this.state.filterValue)
-    console.log('lo incluye o no lo incluye',this.state.characters[0].name.includes(this.state.filterValue));
-    this.state.characters.map((character)=>{
-      if(character.name.includes(this.state.filterValue) === true){
-        this.setState({
-
-        })
-      } 
+      // console.log('this.state.filterValue',this.state.filterValue)
+      // console.log('nombre del primer caracter',this.state.characters[0].name);
+      // console.log('lo incluye o no lo incluye',this.state.characters[0].name.includes(this.state.filterValue));
+      this.state.characters.map((character)=>{
+        if(character.name.includes(this.state.filterValue) === true){
+          const characterName = character.name;
+          this.setState({
+            filteredCharacters: [...this.state.filteredCharacters, characterName]
+          })
+          console.log('array de personas que coinciden?',this.state.filteredCharacters)
+        } 
+      })
     })
   }
 
 
-
   render() {
-    const {characters} = this.state;
+    const {characters, filteredCharacters} = this.state;
+    console.log('porque no me llega bien aqui?',filteredCharacters);
     // console.log('filterValue',this.state.filterValue)
     if (characters.length === 0) {
       return (
@@ -74,8 +74,30 @@ class App extends Component {
             <h1> harry potter characters </h1>
           </header>
           <main>
+            <Switch>
+              <Route
+                exact
+                path='/'
+                render={({ match, history, location }) =>
+                  <CharacterList 
+                    match={match}
+                    location={location}
+                    history={history}
+                    arrayCharacters={characters} 
+                    arrayCharactersFiltered={filteredCharacters}
+                  />
+                }
+              />
+              <Route
+                path='/:id'
+                render={(props) =>
+                  <CharacterDetail {...props}
+                    arrayCharacters={characters} 
+                  />
+                }
+              />
+          </Switch>
             <Filters handleChangeInput = {this.handleChangeInput}/>
-            <CharacterList arrayCharacters={characters}/>
           </main>
         </div>
       );
