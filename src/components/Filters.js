@@ -2,7 +2,9 @@ import React from 'react';
 
 class Filters extends React.Component{
     render(){
-        return ('Filters');
+        return (
+            <input type="text" name="" id=""/>
+        );
     }
 }
 
