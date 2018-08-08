@@ -8,8 +8,11 @@ class App extends Component {
     super();
 
     this.state = {
-      characters: []
-    }
+      characters: [],
+      filterValue: '',
+    };
+
+    this.handleChangeInput = this.handleChangeInput.bind(this);
 
   }
 
@@ -30,11 +33,14 @@ class App extends Component {
     });
   }
 
-  handleChangeInput(){
-
+  handleChangeInput(event){
+    this.setState({
+      filterValue: event.target.value,
+    });
   }
 
   render() {
+    console.log('filterValue',this.state.filterValue)
     if (this.state === null) {
       return (
         <p>Loading</p>
@@ -44,10 +50,10 @@ class App extends Component {
       return (
         <div className="App">
           <header>
-            <h1>harry potter characters</h1>
+            <h1> harry potter characters </h1>
           </header>
           <main>
-            <Filters/>
+            <Filters handleChangeInput = {this.handleChangeInput}/>
             <CharacterList arrayCharacters={characters}/>
           </main>
         </div>
