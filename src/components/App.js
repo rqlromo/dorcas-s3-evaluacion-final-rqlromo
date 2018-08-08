@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       characters: [],
       filterValue: '',
+      filteredCharacters: [],
     };
 
     this.handleChangeInput = this.handleChangeInput.bind(this);
@@ -21,14 +22,15 @@ class App extends Component {
   }
 
   callFetch(){
-    fetch('http://hp-api.herokuapp.com/api/characters')
+    const url = 'http://hp-api.herokuapp.com/api/characters';
+    fetch(url)
     .then((response)=>response.json())
     .then((json) => {
       this.setState({
         characters: json,
       },
       () => {
-        console.log('estado actualizado!',this.state);
+        // console.log('estado actualizado!',this.state);
       })
     });
   }
@@ -36,17 +38,36 @@ class App extends Component {
   handleChangeInput(event){
     this.setState({
       filterValue: event.target.value,
-    });
+    },
+    () => {
+      // console.log('valor de this state actualizado',this.state.filterValue)
+      // console.log('quiero asegurarme que el tipo de dato es un string',typeof this.state.filterValue);
+      // console.log('nombre del primer caracter',this.state.characters)
+      // caharacters[0].name.includes(this.state.filterValue.)
+    })
+    console.log('this.state.filterValue',this.state.filterValue)
+    console.log('nombre del primer caracter',this.state.characters[0].name);
+    this.state.characters[0].name.includes(this.state.filterValue)
+    console.log('lo incluye o no lo incluye',this.state.characters[0].name.includes(this.state.filterValue));
+    this.state.characters.map((character)=>{
+      if(character.name.includes(this.state.filterValue) === true){
+        this.setState({
+
+        })
+      } 
+    })
   }
 
+
+
   render() {
-    console.log('filterValue',this.state.filterValue)
-    if (this.state === null) {
+    const {characters} = this.state;
+    // console.log('filterValue',this.state.filterValue)
+    if (characters.length === 0) {
       return (
         <p>Loading</p>
       )
     } else {
-      const {characters} = this.state;
       return (
         <div className="App">
           <header>
