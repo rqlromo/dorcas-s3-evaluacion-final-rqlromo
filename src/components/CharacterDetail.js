@@ -2,8 +2,8 @@ import React from 'react';
 
 class CharacterDetail extends React.Component{
     render(){
-        console.log('props characterDetails',this.props);
-        const {image, name, house} = this.props;
+        console.log('props characterDetails',this.props.characterRoute);
+        const {image, name, house} = this.props.characterRoute;
         return (
             <div>
                 <img src={image} alt={name}/>

@@ -17,21 +17,51 @@ class App extends Component {
     };
 
     this.handleChangeInput = this.handleChangeInput.bind(this);
-
+    this.getCharacter = this.getCharacter.bind(this);
   }
 
   componentDidMount(){
     this.callFetch()
   }
 
+  // const ENDPOINT = 'https://randomuser.me/api/?results=3';
+
+  // fetch(ENDPOINT)
+  //   .then(res=>res.json())
+  //   .then(data=>{
+  //     const resultados = data.results;
+    
+  // //    console.log(resultados[0]);
+    
+  //     let resultadosConPaco = [];
+      
+  //     for (let i=0; i<resultados.length; i++) {
+  //       resultadosConPaco[i] = {
+  //         ...resultados[i],
+  //         paco: i
+  //       }
+  //     }  
+  //   console.log(resultadosConPaco[2]);
+  //   });
+
   callFetch(){
     const url = 'http://hp-api.herokuapp.com/api/characters';
     fetch(url)
     .then((response)=>response.json())
     .then((json) => {
+      let charactersConId = [];
+      
+      for (let i=0; i<json.length; i++) {
+        charactersConId[i] = {
+          ...json[i],
+          id: i
+        }
+      }
+
       this.setState({
-        characters: json,
-      },
+        characters: charactersConId,
+      }
+      ,
       () => {
         // console.log('estado actualizado!',this.state);
       })
@@ -58,6 +88,11 @@ class App extends Component {
     })
   }
 
+  getCharacter(id) {
+    const { characters } = this.state;
+    console.log('id',id);
+    return characters.find(characterFind => characterFind.id === parseInt(id));
+  }
 
   render() {
     const {characters, filteredCharacters} = this.state;
@@ -92,7 +127,7 @@ class App extends Component {
                 path='/:id'
                 render={(props) =>
                   <CharacterDetail {...props}
-                    arrayCharacters={characters} 
+                  characterRoute={this.getCharacter(props.match.params.id)}
                   />
                 }
               />
