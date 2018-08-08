@@ -109,6 +109,7 @@ class App extends Component {
             <h1> harry potter characters </h1>
           </header>
           <main>
+          <Filters handleChangeInput = {this.handleChangeInput}/>
             <Switch>
               <Route
                 exact
@@ -132,7 +133,6 @@ class App extends Component {
                 }
               />
           </Switch>
-            <Filters handleChangeInput = {this.handleChangeInput}/>
           </main>
         </div>
       );
