@@ -81,11 +81,7 @@ class App extends Component {
     } else {
       return (
         <div className="App">
-          <header>
-            <h1> harry potter characters </h1>
-          </header>
           <main className="MainApp">
-          
             <Switch>
               <Route
                 exact

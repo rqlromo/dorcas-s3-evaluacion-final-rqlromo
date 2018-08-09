@@ -46,6 +46,9 @@ class CharacterList extends React.Component{
 
         return (
             <div className="WrapperList">
+                <header>
+                    <h1> harry potter characters </h1>
+                </header>
                 <Filters 
                     handleChangeInput={handleChangeInput}
                     handleFocusInput={handleFocusInput}
