@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class CharacterDetail extends React.Component{
     render(){
-        console.log('props characterDetails',this.props.characterRoute);
+        // console.log('props characterDetails',this.props.characterRoute);
         const {image, name, house, patronus, yearOfBirth, alive} = this.props.characterRoute;
 
         return (

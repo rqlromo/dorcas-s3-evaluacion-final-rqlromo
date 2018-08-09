@@ -4,17 +4,38 @@ import CharacterCard from './CharacterCard';
 import Filters from './Filters';
 
 class CharacterList extends React.Component{
+    constructor(){
+        super();
+        this.charactersFiltered = this.charactersFiltered.bind(this);
+    }
+
+    charactersFiltered(charact){
+        const {arrayCharacters, filterValue} = this.props;
+        console.log('arrayCharacters',arrayCharacters);
+        return charact.name.includes(filterValue) === true ;
+    }
+    
+    getFilteredList(){
+        const {arrayCharacters, filterValue} = this.props;
+
+        console.log('state y props',this.state, this.props)
+
+        return ( !filterValue 
+            ? arrayCharacters 
+            : arrayCharacters.filter(this.charactersFiltered)
+        );
+    }
+
     render(){
         console.log('props now',this.props);
-        const {arrayCharacters, arrayCharactersFiltered ,handleChangeInput} = this.props;
-        console.log(arrayCharactersFiltered);
+        const {arrayCharacters, getFilteredList ,handleChangeInput} = this.props;
 
-        if(arrayCharactersFiltered.length === 0){
+        {/*if(arrayCharactersFiltered.length === 0){*/}
             return (
                 <div>
                     <Filters handleChangeInput={handleChangeInput}/>
                     <ul>
-                        {arrayCharacters.map((character,index)=>
+                        {this.getFilteredList().map((character,index)=>
                             <li key={index}>
                                 <Link
                                     to={`/${character.id}`}
@@ -33,7 +54,7 @@ class CharacterList extends React.Component{
                     </ul>
                 </div>
             ); 
-        } else {
+       {/* } else {
             return (
                 <div>
                     <Filters handleChangeInput={handleChangeInput}/>
@@ -50,7 +71,7 @@ class CharacterList extends React.Component{
                     </ul>
                 </div>
             );
-        }
+        }*/}
     }
 }
 
