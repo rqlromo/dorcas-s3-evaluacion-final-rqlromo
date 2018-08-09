@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import calavera from '../images/calavera-skull.jpg';
 
 class CharacterDetail extends React.Component{
@@ -8,7 +9,7 @@ class CharacterDetail extends React.Component{
         const {image, name, house, patronus, yearOfBirth, alive} = this.props.characterRoute;
 
         return (
-            <div>
+            <div >
                 <Link to="/">Back</Link>
                 <img src={image} alt={name}/>
                 <h2> {name} </h2>
@@ -16,11 +17,17 @@ class CharacterDetail extends React.Component{
                     <li>{` Casa: ${house}`}</li>
                     <li>{` Año de nacimiento:  ${yearOfBirth} ` }</li>
                     <li>{` Patronus: ${patronus}` }</li>
-                    <li>{!!alive? 'Estado: Vivo' : <img src={calavera} alt="calavera"/> }</li>
+                    <li>{!!alive ? 'Estado: Vivo' : <img src={calavera} alt="calavera"/> }</li>
                 </ul>
             </div>
         );
     }
 }
+
+CharacterDetail.defaultProps = {
+    patronus: 'No tiene patronus',
+    house: 'No pertenece a ninguna casa',
+}
+
 
 export default CharacterDetail;

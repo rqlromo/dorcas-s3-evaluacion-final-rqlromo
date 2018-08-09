@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   callFetch(){
-    const url = 'http://hp-api.herokuapp.com/api/characters';
+    const url = 'https://hp-api.herokuapp.com/api/characters';
     fetch(url)
     .then((response)=>response.json())
     .then((json) => {

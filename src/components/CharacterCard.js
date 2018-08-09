@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class CharacterCard extends React.Component{
     render(){
-        // console.log('props',this.props);
-        const {image, name, house} = this.props;
+        console.log('props en characterCard',this.props);
+        const {image, name, house} = this.props.character;
         return (
             <div>
                 <img src={image} alt={name}/>
@@ -12,6 +13,11 @@ class CharacterCard extends React.Component{
             </div>
         );
     }
+}
+
+CharacterCard.defaultProps = {
+    patronus: 'No tiene patronus',
+    house: 'No pertenece a ninguna casa',
 }
 
 export default CharacterCard;
