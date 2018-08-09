@@ -8,12 +8,26 @@ class CharacterList extends React.Component{
     constructor(){
         super();
         this.charactersFiltered = this.charactersFiltered.bind(this);
+        this.capitalize = this.capitalize.bind(this);
+    }
+
+    capitalize(str) {
+
+        str = str.toLowerCase();
+        str = str.split(' ');
+      
+        for (var i = 0; i < str.length; i++) {
+          str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+        }
+        
+        return str.join(' '); 
     }
 
     charactersFiltered(charact){
         const {filterValue} = this.props;
         // console.log('vamos a ver que pasa',charact.name.toLowerCase());
-        return (charact.name.toLowerCase().includes(filterValue) === true) ||(charact.name.toUpperCase().includes(filterValue) === true)  ;
+        return (charact.name.toLowerCase().includes(filterValue) === true) ||(charact.name.toUpperCase().includes(filterValue) === true) || 
+        (this.capitalize(charact.name).includes(filterValue) === true) ;
     }
     
     getFilteredList(){
