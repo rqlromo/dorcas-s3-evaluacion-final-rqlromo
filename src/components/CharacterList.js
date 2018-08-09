@@ -25,11 +25,14 @@ class CharacterList extends React.Component{
 
     render(){
         console.log('props now',this.props);
-        const {handleChangeInput} = this.props;
+        const {handleChangeInput, handleFocusInput} = this.props;
 
         return (
             <div>
-                <Filters handleChangeInput={handleChangeInput}/>
+                <Filters 
+                    handleChangeInput={handleChangeInput}
+                    handleFocusInput={handleFocusInput}
+                />
                 <ul>
                     {this.getFilteredList().map((character,index)=>
                         <li key={index}>
