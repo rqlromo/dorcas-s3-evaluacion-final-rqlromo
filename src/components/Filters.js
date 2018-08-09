@@ -14,7 +14,8 @@ class Filters extends React.Component{
                 type="text" 
                 name="searchCharacters" 
                 id="searchCharacters"
-                className="InputFilter" 
+                placeholder="Introduce un personaje"
+                className="InputFilter"
             />
         );
     }

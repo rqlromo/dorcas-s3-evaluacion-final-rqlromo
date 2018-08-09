@@ -46,7 +46,7 @@ class CharacterList extends React.Component{
 
         return (
             <div className="WrapperList">
-                <header>
+                <header className="TitleHeader">
                     <h1> harry potter characters </h1>
                 </header>
                 <Filters 

@@ -53,8 +53,24 @@
 
 .ListDetail{
     list-style-type: none;
+    padding: 20px;
+}
+
+.ListItemDetail{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ImageAlive{
+    height: 40px;
+    width: 40px;
 }
 
 a{
     text-decoration: none;
+}
+
+.TitleDetail{
+    padding: 20px
 }

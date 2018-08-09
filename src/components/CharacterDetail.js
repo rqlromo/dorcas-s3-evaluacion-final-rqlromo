@@ -17,12 +17,12 @@ class CharacterDetail extends React.Component{
                         <img className="ImageDetail" src={image} alt={name}/>
                     </div>
                     <div className="boxTextDetail">
-                        <h2> {name} </h2>
+                        <h2 className="TitleDetail"> {name} </h2>
                         <ul className="ListDetail">
-                            <li>{` Casa: ${house}`}</li>
-                            <li>{` Año de nacimiento:  ${yearOfBirth} ` }</li>
-                            <li>{` Patronus: ${patronus}` }</li>
-                            <li>{!!alive ? 'Estado: Vivo' : <img src={calavera} alt="calavera"/> }</li>
+                            <li className="ListItemDetail">{` Casa: ${house}`}</li>
+                            <li className="ListItemDetail">{` Año de nacimiento:  ${yearOfBirth} ` }</li>
+                            <li className="ListItemDetail">{` Patronus: ${patronus}` }</li>
+                            <li className="ListItemDetail">{!!alive ? 'Estado: Vivo' : <img className="ImageAlive" src={calavera} alt="calavera"/> }</li>
                         </ul>
                     </div>
                 </div>

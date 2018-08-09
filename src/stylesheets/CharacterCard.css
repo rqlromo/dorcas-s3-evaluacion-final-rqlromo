@@ -4,11 +4,18 @@
 }
 
 .ImageCard{
-    width: 220px;
+    width: 218px;
+    height: 300px;
+    display: block;
 }
 
 .WrapperText{
     background-color: #FB7F5C;
+    height: 80px;
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .NameCard{

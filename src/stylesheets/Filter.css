@@ -1,7 +1,10 @@
 .InputFilter{
-    height: 50px;
-    width: 400px;
+    height: 40px;
+    width: 300px;
     margin-right: auto;
     margin-left: auto;
-    border:1px solid red;
+    border:1px solid black;
+    display: block;
+    font-size: 16px;
+    text-align: center;
 }
