@@ -52,22 +52,9 @@ class App extends Component {
     },
     () => {
       console.log('this.state.filterValue valor actualizado:',this.state.filterValue)
-      // console.log('nombre del primer caracter',this.state.characters[0].name);
-      // console.log('lo incluye o no lo incluye',this.state.characters[0].name.includes(this.state.filterValue));
-      // this.state.characters.map((character)=>{
-      //   if(character.name.includes(this.state.filterValue) === true){
-      //     const characterName = character.name;
-      //     this.setState({
-      //       filteredCharacters: [...this.state.filteredCharacters, characterName]
-      //     })
-      //     console.log('array de personas que coinciden?',this.state.filteredCharacters)
-      //   } 
-      // })
     });
   }
   
-
-
   getCharacter(id) {
     const { characters } = this.state;
     // console.log('id',id);
