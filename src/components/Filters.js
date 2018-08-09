@@ -2,10 +2,17 @@ import React from 'react';
 
 class Filters extends React.Component{
     render(){
-        const {handleChangeInput} = this.props;
+        const {handleChangeInput, handleFocusInput, filterValue} = this.props;
         // console.log('handleChangeInput Filters',handleChangeInput);
         return (
-            <input onChange={handleChangeInput} type="text" name="" id="" />
+            <input 
+                onChange={handleChangeInput}
+                onBlur={handleFocusInput}
+                value={filterValue}
+                type="text" 
+                name="searchCharacters" 
+                id="searchCharacters" 
+            />
         );
     }
 }

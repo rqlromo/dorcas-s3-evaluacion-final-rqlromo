@@ -15,7 +15,9 @@ class App extends Component {
     };
 
     this.handleChangeInput = this.handleChangeInput.bind(this);
+    this.handleFocusInput = this.handleFocusInput.bind(this);
     this.getCharacter = this.getCharacter.bind(this);
+
   }
 
   componentDidMount(){
@@ -51,10 +53,19 @@ class App extends Component {
       filterValue: event.target.value,
     },
     () => {
-      console.log('this.state.filterValue valor actualizado:',this.state.filterValue)
+      console.log('this.state.filterValue valor actualizado depues de onClick:',this.state.filterValue)
     });
   }
   
+  handleFocusInput(event){
+    this.setState({
+      filterValue: '',
+    },
+    () => {
+      console.log('this.state.filterValue valor actualizado despues de onBlur:',this.state.filterValue)
+    });
+  }
+
   getCharacter(id) {
     const { characters } = this.state;
     // console.log('id',id);
@@ -86,7 +97,8 @@ class App extends Component {
                     history={history}
                     arrayCharacters={characters} 
                     filterValue={filterValue}
-                    handleChangeInput = {this.handleChangeInput}
+                    handleChangeInput={this.handleChangeInput}
+                    handleFocusInput={this.handleFocusInput}
                   />
                 }
               />
