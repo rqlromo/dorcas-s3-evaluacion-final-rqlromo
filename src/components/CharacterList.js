@@ -4,53 +4,52 @@ import CharacterCard from './CharacterCard';
 import Filters from './Filters';
 
 class CharacterList extends React.Component{
+    constructor(){
+        super();
+        this.charactersFiltered = this.charactersFiltered.bind(this);
+    }
+
+    charactersFiltered(charact){
+        const {filterValue} = this.props;
+        return charact.name.includes(filterValue) === true ;
+    }
+    
+    getFilteredList(){
+        const {arrayCharacters, filterValue} = this.props;
+        console.log('state y props',this.state, this.props)
+        return ( !filterValue 
+            ? arrayCharacters 
+            : arrayCharacters.filter(this.charactersFiltered)
+        );
+    }
+
     render(){
         console.log('props now',this.props);
-        const {arrayCharacters, arrayCharactersFiltered ,handleChangeInput} = this.props;
-        console.log(arrayCharactersFiltered);
+        const {handleChangeInput} = this.props;
 
-        if(arrayCharactersFiltered.length === 0){
-            return (
-                <div>
-                    <Filters handleChangeInput={handleChangeInput}/>
-                    <ul>
-                        {arrayCharacters.map((character,index)=>
-                            <li key={index}>
-                                <Link
-                                    to={`/${character.id}`}
-                                >
-                                    <CharacterCard
-                                        image = {character.image}
-                                        name = {character.name}
-                                        house = {character.house}
-                                        patronus = {character.house}
-                                        yearOfBirth = {character.yearOfBirth}
-                                        alive = {character.alive}
-                                    />
-                                </Link>
-                            </li>
-                        )}
-                    </ul>
-                </div>
-            ); 
-        } else {
-            return (
-                <div>
-                    <Filters handleChangeInput={handleChangeInput}/>
-                    <ul>
-                        {arrayCharactersFiltered.map((character,index)=>
-                            <li key={index}>
+        return (
+            <div>
+                <Filters handleChangeInput={handleChangeInput}/>
+                <ul>
+                    {this.getFilteredList().map((character,index)=>
+                        <li key={index}>
+                            <Link
+                                to={`/${character.id}`}
+                            >
                                 <CharacterCard
                                     image = {character.image}
                                     name = {character.name}
                                     house = {character.house}
+                                    patronus = {character.house}
+                                    yearOfBirth = {character.yearOfBirth}
+                                    alive = {character.alive}
                                 />
-                            </li>
-                        )}
-                    </ul>
-                </div>
-            );
-        }
+                            </Link>
+                        </li>
+                    )}
+                </ul>
+            </div>
+        ); 
     }
 }
 
