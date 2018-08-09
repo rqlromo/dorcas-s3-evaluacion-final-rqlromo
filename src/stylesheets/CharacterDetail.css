@@ -40,13 +40,12 @@
 }
 
 .boxTextDetail{
-    width: 500px;
+    width: 450px;
     height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-left: 30px;
-    /* align-items: center; */
     background-color: #FB7F5C;
     color: white;
 }

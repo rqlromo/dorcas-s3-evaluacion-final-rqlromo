@@ -21,4 +21,11 @@ class Filters extends React.Component{
     }
 }
 
+Filters.propTypes = {
+    filterValue: PropTypes.string.isRequired,
+    handleChangeInput: PropTypes.func.isRequired,
+    handleFocusInput: PropTypes.func.isRequired,
+}
+
+
 export default Filters;

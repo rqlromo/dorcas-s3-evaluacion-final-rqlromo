@@ -33,7 +33,7 @@ class CharacterList extends React.Component{
     
     getFilteredList(){
         const {arrayCharacters, filterValue} = this.props;
-        console.log('state y props',this.state, this.props);
+        // console.log('state y props',this.state, this.props);
         return ( !filterValue 
             ? arrayCharacters 
             : arrayCharacters.filter(this.charactersFiltered)
@@ -71,6 +71,14 @@ class CharacterList extends React.Component{
         ); 
     }
 }
+
+CharacterList.propTypes = {
+    filterValue: PropTypes.string.isRequired,
+    handleChangeInput: PropTypes.func.isRequired,
+    handleFocusInput: PropTypes.func.isRequired,
+    arrayCharacters: PropTypes.array.isRequired,
+}
+
 
 export default CharacterList;
 
