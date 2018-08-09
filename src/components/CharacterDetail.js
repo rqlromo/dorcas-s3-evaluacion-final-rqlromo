@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 class CharacterDetail extends React.Component{
     render(){
         console.log('props characterDetails',this.props.characterRoute);
-        const {image, name, house, patronus, yearOfBird, alive} = this.props.characterRoute;
+        const {image, name, house, patronus, yearOfBirth, alive} = this.props.characterRoute;
+
         return (
             <div>
                 <Link to="/">Back</Link>
@@ -12,7 +13,7 @@ class CharacterDetail extends React.Component{
                 <h2> {name} </h2>
                 <ul>
                     <li>{` Casa: ${house}`}</li>
-                    <li>{` Año de nacimiento: ${yearOfBird}` }</li>
+                    <li>{` Año de nacimiento:  ${yearOfBirth} ` }</li>
                     <li>{` Patronus: ${patronus}` }</li>
                     <li>{!!alive? 'Estado: Vivo' : 'Estado: Muerto' }</li>
                 </ul>
