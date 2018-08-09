@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import calavera from '../images/calavera-skull.jpg';
 
 class CharacterDetail extends React.Component{
     render(){
@@ -15,7 +16,7 @@ class CharacterDetail extends React.Component{
                     <li>{` Casa: ${house}`}</li>
                     <li>{` Año de nacimiento:  ${yearOfBirth} ` }</li>
                     <li>{` Patronus: ${patronus}` }</li>
-                    <li>{!!alive? 'Estado: Vivo' : 'Estado: Muerto' }</li>
+                    <li>{!!alive? 'Estado: Vivo' : <img src={calavera} alt="calavera"/> }</li>
                 </ul>
             </div>
         );
