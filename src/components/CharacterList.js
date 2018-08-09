@@ -11,12 +11,13 @@ class CharacterList extends React.Component{
 
     charactersFiltered(charact){
         const {filterValue} = this.props;
-        return charact.name.includes(filterValue) === true ;
+        // console.log('vamos a ver que pasa',charact.name.toLowerCase());
+        return charact.name.toLowerCase().includes(filterValue) === true ;
     }
     
     getFilteredList(){
         const {arrayCharacters, filterValue} = this.props;
-        console.log('state y props',this.state, this.props)
+        console.log('state y props',this.state, this.props);
         return ( !filterValue 
             ? arrayCharacters 
             : arrayCharacters.filter(this.charactersFiltered)

@@ -11,7 +11,7 @@ class App extends Component {
 
     this.state = {
       characters: [],
-      filterValue: null,
+      filterValue: '',
     };
 
     this.handleChangeInput = this.handleChangeInput.bind(this);
@@ -53,7 +53,7 @@ class App extends Component {
       filterValue: event.target.value,
     },
     () => {
-      console.log('this.state.filterValue valor actualizado depues de onClick:',this.state.filterValue)
+      console.log('this.state.filterValue valor actualizado depues de onClick:',this.state.filterValue);
     });
   }
   
@@ -62,7 +62,7 @@ class App extends Component {
       filterValue: '',
     },
     () => {
-      console.log('this.state.filterValue valor actualizado despues de onBlur:',this.state.filterValue)
+      console.log('this.state.filterValue valor actualizado despues de onBlur:',this.state.filterValue);
     });
   }
 

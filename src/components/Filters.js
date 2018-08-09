@@ -7,7 +7,7 @@ class Filters extends React.Component{
         return (
             <input 
                 onChange={handleChangeInput}
-                onBlur={handleFocusInput}
+                onFocus={handleFocusInput}
                 value={filterValue}
                 type="text" 
                 name="searchCharacters" 
