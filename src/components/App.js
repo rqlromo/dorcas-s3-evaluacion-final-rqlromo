@@ -84,7 +84,7 @@ class App extends Component {
           <header>
             <h1> harry potter characters </h1>
           </header>
-          <main>
+          <main className="MainApp">
           
             <Switch>
               <Route

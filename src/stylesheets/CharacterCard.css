@@ -1,0 +1,20 @@
+.WrapperCard{
+    width: 180px;
+    border: 1px solid black;
+}
+
+.ImageCard{
+    width: 180px;
+}
+
+.WrapperText{
+    background-color: #FB7F5C;
+}
+
+.NameCard{
+    color: white;
+}
+
+.HouseCard{
+    color: white;
+}

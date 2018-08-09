@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CharacterCard from './CharacterCard';
 import Filters from './Filters';
+import '../stylesheets/CharacterList.css'
 
 class CharacterList extends React.Component{
     constructor(){
@@ -44,15 +45,15 @@ class CharacterList extends React.Component{
         const {handleChangeInput, handleFocusInput, filterValue} = this.props;
 
         return (
-            <div>
+            <div className="WrapperList">
                 <Filters 
                     handleChangeInput={handleChangeInput}
                     handleFocusInput={handleFocusInput}
                     filterValue={filterValue}
                 />
-                <ul>
+                <ul className="ListList">
                     {this.getFilteredList().map((character,index)=>
-                        <li key={index}>
+                        <li className="ItemList" key={index}>
                             <Link
                                 to={`/${character.id}`}
                             >

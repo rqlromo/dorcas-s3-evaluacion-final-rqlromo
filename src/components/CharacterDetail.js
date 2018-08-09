@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import calavera from '../images/calavera-skull.jpg';
+import '../stylesheets/CharacterDetail.css'
 
 class CharacterDetail extends React.Component{
     render(){
@@ -9,16 +10,20 @@ class CharacterDetail extends React.Component{
         const {image, name, house, patronus, yearOfBirth, alive} = this.props.characterRoute;
 
         return (
-            <div >
+            <div className="WrapperDetail">
                 <Link to="/">Back</Link>
-                <img src={image} alt={name}/>
-                <h2> {name} </h2>
-                <ul>
-                    <li>{` Casa: ${house}`}</li>
-                    <li>{` Año de nacimiento:  ${yearOfBirth} ` }</li>
-                    <li>{` Patronus: ${patronus}` }</li>
-                    <li>{!!alive ? 'Estado: Vivo' : <img src={calavera} alt="calavera"/> }</li>
-                </ul>
+                <div className="boxImageDetail">
+                    <img className="ImageDetail" src={image} alt={name}/>
+                </div>
+                <div className="boxTextDetail">
+                    <h2> {name} </h2>
+                    <ul className="ListDetail">
+                        <li>{` Casa: ${house}`}</li>
+                        <li>{` Año de nacimiento:  ${yearOfBirth} ` }</li>
+                        <li>{` Patronus: ${patronus}` }</li>
+                        <li>{!!alive ? 'Estado: Vivo' : <img src={calavera} alt="calavera"/> }</li>
+                    </ul>
+                </div>
             </div>
         );
     }

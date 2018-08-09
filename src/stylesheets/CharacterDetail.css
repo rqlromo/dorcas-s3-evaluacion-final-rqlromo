@@ -1,0 +1,43 @@
+.WrapperDetail{
+    background-color: #F1FFFF;
+    margin-left: auto;
+    display:flex;
+    /* flex-direction: column; */
+    height: 100vh;
+    width: 100%;
+}
+
+.boxImageDetail{
+    width: 250px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FB7F5C;
+}
+
+.ImageDetail{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.boxTextDetail{
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30px;
+    /* align-items: center; */
+    background-color: #FB7F5C;
+    color: white;
+}
+
+.ListDetail{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}

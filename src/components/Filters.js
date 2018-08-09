@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../stylesheets/Filter.css'
 
 class Filters extends React.Component{
     render(){
@@ -12,7 +13,8 @@ class Filters extends React.Component{
                 value={filterValue}
                 type="text" 
                 name="searchCharacters" 
-                id="searchCharacters" 
+                id="searchCharacters"
+                className="InputFilter" 
             />
         );
     }
