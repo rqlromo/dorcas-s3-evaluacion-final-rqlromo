@@ -17,7 +17,7 @@ class App extends Component {
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.handleFocusInput = this.handleFocusInput.bind(this);
     this.getCharacter = this.getCharacter.bind(this);
-
+    this.handleFovourite= this.handleFovourite.bind(this);
   }
 
   componentDidMount(){
@@ -34,7 +34,8 @@ class App extends Component {
       for (let i=0; i<json.length; i++) {
         charactersConId[i] = {
           ...json[i],
-          id: i
+          id: i,
+          favourite: false,
         }
       }
 
@@ -43,7 +44,7 @@ class App extends Component {
       }
       ,
       () => {
-        // console.log('estado actualizado!',this.state);
+        //  console.log('estado actualizado!',this.state);
       })
     });
   }
@@ -72,6 +73,24 @@ class App extends Component {
     return characters.find(characterFind => characterFind.id === parseInt(id));
   }
 
+  handleFovourite(id){
+     const newArrayCharacters = this.state.characters.map(function(character){
+      if(character.id === id){
+
+        const newObjectCharacters = {
+          ...character,
+          favourite: character.favourite === true ? false : true,
+        }
+        return newObjectCharacters;
+      } else {
+        return character;
+      }
+    })
+    this.setState({
+      characters: newArrayCharacters, 
+    })
+  }
+
   render() {
     const {characters, filterValue} = this.state;
     if (characters.length === 0) {
@@ -95,6 +114,7 @@ class App extends Component {
                     filterValue={filterValue}
                     handleChangeInput={this.handleChangeInput}
                     handleFocusInput={this.handleFocusInput}
+                    handleFovourite={this.handleFovourite}
                   />
                 }
               />

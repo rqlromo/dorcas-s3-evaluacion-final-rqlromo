@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CharacterCard from './CharacterCard';
 import Filters from './Filters';
@@ -42,7 +41,7 @@ class CharacterList extends React.Component{
 
     render(){
         console.log('props now',this.props);
-        const {handleChangeInput, handleFocusInput, filterValue} = this.props;
+        const {handleChangeInput, handleFocusInput, filterValue, handleFovourite } = this.props;
 
         return (
             <div className="WrapperList">
@@ -57,13 +56,10 @@ class CharacterList extends React.Component{
                 <ul className="ListList">
                     {this.getFilteredList().map((character,index)=>
                         <li className="ItemList" key={index}>
-                            <Link
-                                to={`/${character.id}`}
-                            >
                                 <CharacterCard
                                     character={character}
+                                    handleFovourite={handleFovourite}
                                 />
-                            </Link>
                         </li>
                     )}
                 </ul>
